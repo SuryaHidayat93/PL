@@ -1,0 +1,27 @@
+public class Tayo {
+    
+    void a(String mobilType){
+        System.out.println("merek mobil\t : " +mobilType);
+    }
+
+    void a(String warna, int jr, String nopol){
+        System.out.println("Warna mobil \t : " +warna);
+        System.out.println("Jumlah Roda \t : " +jr);
+        System.out.println("Nomor Plat \t : " +nopol); 
+    }
+   
+    void a(double kecepatan, double waktu){
+        System.out.println("Kecepatan mobil : " + kecepatan + "km/jam");
+        System.out.println("Waktu Tempuh mobil : " + waktu + "jam");
+        System.out.println("Jarak Tempuh mobil : " + (kecepatan*waktu) + "km");
+    }
+}
+
+public class CobaTayo {
+    public static void main(String[] args) {
+        Tayo tayo = new Tayo();
+        tayo.a("Tayo");
+        tayo.a("Biru", 6, "BM 1234 TIF");
+        tayo.a(60, 2);
+    }
+}
