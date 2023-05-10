@@ -1,0 +1,45 @@
+public class motor {
+//    defenisi variabel
+    String merk;
+    int tahun;
+    int roda;
+    
+//    konstruktor
+    void merk (String merk){
+        this.merk = merk;
+    }
+    void tahun (int tahun){
+        this.tahun = tahun;
+    }
+    
+ // method void
+    void print (){
+        System.out.println("merk motor: " +merk);
+    }
+    
+    void merkTahun(){
+        System.out.println("merk motor " + merk + " tahun keluaran " + tahun);
+    }
+    
+//    method int
+    int jumlahroda (int roda){
+        System.out.println("jumlah roda: " + roda);
+        return roda;
+    }
+
+    }
+    
+//pemrograman ini berisi variabel, konstruktor, 2 method void dan method non void,dan beberapa inputan seperti merk, tahun, dan jumlah roda
+
+public class method {
+    public static void main(String[] args) {
+        motor motor1= new motor();
+        motor1.merk("yamahaa"); //pemanggilan method void
+        motor1.tahun(2019);
+        motor1.print();//pemanggilan method void
+        motor1.merkTahun();//pemanggilan method void
+        motor1.jumlahroda(2);//pemanggilan method non void
+    }
+}
+
+//pemrograman ini dibuat untuk memanggil file motor dan melakukan dengan memanggil method merek,tahun produksi,dan jumlah roda dari motor.
