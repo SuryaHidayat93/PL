@@ -1,0 +1,147 @@
+class Car {
+    final int speed;
+    final int handling;
+    final int acceleration;
+    final String driverName;
+
+
+    Car(String driverName, int speed, int handling, int acceleration) {
+        this.driverName = driverName;
+        this.speed = speed;
+        this.acceleration = acceleration;
+        this.handling = handling;
+    }
+
+    void display() {
+        System.out.println("Driver:" + this.driverName);
+        System.out.println("Speed:" + this.speed + " KM/jam");
+        System.out.println("Acceleration" + this.acceleration);
+        System.out.println("Handling: " + this.handling);
+    }
+
+    int getSpeed() {
+        return this.speed;
+    }
+
+    // A. Method Overloading
+    // Suatu cara pembuatan method, dimana method dengan nama yang sama bisa dibuat lebih dari 1x
+    // di dalam class yang sama, namun dengan parameter yang berbeda
+
+    // 1. parameter method tersebut harus memiliki jumlah yang berbeda
+    // 2. jika jumlah parameter method tersebut sama, maka type data dari variable yang terdapat di method tersebut
+    //    harus berbeda
+
+    // aduKecepatanMobil yang terdiri dari 2 parameter
+
+    void aduKecepatanMobil(Lamborghini lamborghini, Ferrari ferrari) {
+        if (lamborghini.getSpeed() > ferrari.getSpeed()) {
+            System.out.println("lamborghini WIN");
+        } else {
+            System.out.println("Ferrari WIN");
+        }
+    }
+
+    void aduKecepatanMobil(Lamborghini lamborghini, Ferrari ferrari, Porche porche) {
+        if (lamborghini.getSpeed() > ferrari.getSpeed()) {
+            if (lamborghini.getSpeed() > porche.getSpeed()) {
+                System.out.println("Lamborghini WIN");
+            } else {
+                System.out.println("Porsche WIN");
+            }
+        } else {
+            if (ferrari.getSpeed() > porche.getSpeed()) {
+                System.out.println("Ferrari WIN");
+            } else {
+                System.out.println("Porsche Win");
+            }
+        }
+    }
+
+    // aduKecepatanMobil yang terdiri dari 3 parameter
+
+    // B. Cara memanggil method superclass di dalam subclass
+
+    // 1.kita bisa memanggil method superclass di dalam konstruktor subclass atau di dalam method subclass
+    // 2. jika dia adalah method konstruktor, maka dia hanya bisa dipanggil di dalam konstruktornya subclass
+    //    dan wajib dituliskan di baris pertamanya
+
+
+
+}
+
+class Lamborghini extends Car {
+    final String carName = "Lamborghini";
+
+    Lamborghini(String driverName, int speed, int handling, int acceleration) {
+        super(driverName, speed, handling, acceleration);
+
+        super.display();
+    }
+
+    @Override
+    void display() {
+        System.out.println("Car=" + carName);
+        super.display();
+
+    }
+}
+
+class Ferrari extends Car {
+    final String carName = "Ferrari";
+
+    Ferrari(String driverName, int speed, int handling, int acceleration) {
+        super(driverName, speed, handling, acceleration);
+    }
+
+    void display() {
+        System.out.println("Car= " + carName);
+        super.display();
+    }
+}
+
+class Porche extends Car {
+    final String carName = "Porche";
+
+    Porche(String driverName, int speed, int handling, int acceleration) {
+        super(driverName, speed, handling, acceleration);
+    }
+
+    void display() {
+        System.out.println("Car= " + carName);
+        super.display();
+    }
+}
+
+public class Gear extends Car {
+    int lvWheel;
+    int lvSteering;
+    int lvMachine;
+
+    Gear(int lvWheel, int lvSteering, int lvMachine) {
+        this.lvWheel = lvWheel;
+        this.lvSteering = lvSteering;
+        this.lvMachine = lvMachine;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Lamborghini Lamborghini1 = new Lamborghini("Faruq", 280, 50, 60);
+        Ferrari Ferrari1 = new Ferrari("Hafidz", 290, 65, 49);
+        Porche Porsche1 = new Porche("Surya", 299, 40, 90);
+
+        Lamborghini1.display();
+        Ferrari1.display();
+        Porsche1.display();
+
+        Car car1 = new Car ("Sumbul", 222,22,222);
+
+        car1.aduKecepatanMobil(Lamborghini1, Ferrari1);
+        car1.aduKecepatanMobil(Lamborghini1, Ferrari1, Porsche1);
+
+        System.out.println(car1.driverName);
+
+
+
+    }
+}
